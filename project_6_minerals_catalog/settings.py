@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'debug_toolbar',
     'haystack',
     'minerals',
 ]
@@ -49,6 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'project_6_minerals_catalog.urls'
@@ -128,3 +130,5 @@ HAYSTACK_CONNECTIONS = {
         'ENGINE': 'haystack.backends.simple_backend.SimpleEngine',
     },
 }
+
+INTERNAL_IPS = ('127.0.0.1')
