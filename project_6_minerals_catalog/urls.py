@@ -24,5 +24,5 @@ urlpatterns = [
     # app homepage == project homepage
     path('', include('minerals.urls', namespace='minerals')),
     path('admin/', admin.site.urls),
-    path(r'^__debug__', include(debug_toolbar.urls))
+    path(r'__debug__', include(debug_toolbar.urls))
 ]
