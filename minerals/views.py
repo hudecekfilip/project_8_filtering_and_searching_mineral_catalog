@@ -23,3 +23,8 @@ def search(request):
     term = request.GET.get('q')
     minerals = Mineral.objects.filter(name__icontains=term)
     return render(request, 'minerals/minerals_list.html', {'minerals': minerals})
+
+
+def filter_by_name(request, letter):
+    minerals = Mineral.objects.filter(name__startswith=letter)
+    return render(request, 'minerals/minerals_list.html', {'minerals': minerals})
