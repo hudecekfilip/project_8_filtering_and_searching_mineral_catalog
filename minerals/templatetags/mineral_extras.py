@@ -8,7 +8,6 @@ register = template.Library()
 
 @register.inclusion_tag('minerals/minerals_names.html')
 def first_letters():
-    print("ahoj")
     all = Mineral.objects.all()
     list = []
     list2 = []
@@ -19,8 +18,3 @@ def first_letters():
     hovno = "hovno"
     newlist = sorted(set(list2), key=lambda x:list2.index(x))
     return {'newlist': newlist}
-
-@register.inclusion_tag('minerals/layout.html')
-def moby_dick():
-    kurzy = Mineral.objects.all()
-    return {'kurzy': kurzy}
