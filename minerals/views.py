@@ -17,3 +17,9 @@ def mineral_detail(request, pk):
     random_mineral = Mineral.objects.order_by('?').first()
     return render(request, 'minerals/detail.html', {'mineral': mineral,
                                             'random_mineral': random_mineral})
+
+
+def search(request):
+    term = request.GET.get('q')
+    minerals = Mineral.objects.filter(name__icontains=term)
+    return render(request, 'minerals/minerals_list.html', {'minerals': minerals})

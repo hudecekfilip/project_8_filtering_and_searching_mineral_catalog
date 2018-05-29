@@ -1,4 +1,5 @@
 {% load static from staticfiles %}
+{% load mineral_extras %}
 
 
 <!DOCTYPE html>
@@ -25,6 +26,17 @@
                     <h1 class="logo__name text-centered">Filip's Minerals</h1>
                 </a>
                 <p class="logo__text text-centered">They're not rocks!</p>
+            </div>
+            <div class="grid-100">
+                <nav class="navbar navbar-light bg-light">
+                    <form action="{% url 'minerals:search' %}" method="GET" class="form-inline">
+                        <input class="form-control mr-sm-2" type="search" name="q" />
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="button">Search</button>
+                    </form>
+                </nav>
+            </div>
+            <div class="grid-100">
+                {% first_letters %}
             </div>
             {% block content %}{% endblock %}
         </div>
