@@ -13,7 +13,5 @@ def first_letters():
     list2 = []
     for x in all:
         list.append(x.name[0])
-    # for x in list:
-    #     list2.append(x[0])
     newlist = sorted(set(list), key=lambda x:list.index(x))
     return {'newlist': newlist}
