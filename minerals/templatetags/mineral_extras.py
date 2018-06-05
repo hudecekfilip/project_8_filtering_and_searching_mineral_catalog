@@ -9,10 +9,11 @@ from minerals.models import Mineral
 register = template.Library()
 
 
-@register.filter
-@stringfilter
-def lower(value):
-    return value.lower()
+GROUPS = [
+    "Silicates", "Oxides", "Sulfates", "Sulfides", "Carbonates", "Halides",
+    "Sulfosalts", "Phosphates", "Borates", "Arsenates",
+    "Native-Elements", "Other"
+]
 
 @register.filter()
 @stringfilter
@@ -27,13 +28,17 @@ def first_letters():
     for x in names:
         list.append(x.name[0])
     newlist = sorted(set(list), key=lambda x:list.index(x))
-    newlist.remove('c')
-    newlist.remove('Å')
+    try:
+        newlist.remove('c')
+    except ValueError:
+        pass
+    try:
+        newlist.remove('Å')
+    except ValueError:
+        pass
     return {'newlist': newlist}
 
 
 @register.inclusion_tag('minerals/minerals_groups.html')
 def group_name():
-    # groups = Mineral.objects.filter(Q(category__exact="Oxide") | Q(category__exact="Sulfide"))
-    GROUPS = ["Silicates", "Oxides", "Sulfates"]
     return {'groups': GROUPS}

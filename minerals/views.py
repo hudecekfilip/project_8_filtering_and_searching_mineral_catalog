@@ -32,5 +32,9 @@ def filter_by_name(request, letter):
 
 def filter_by_category(request, category):
     minerals = Mineral.objects.filter(category__iexact=category)
-    print(minerals)
+    return render(request, 'minerals/minerals_list.html', {'minerals': minerals})
+
+
+def other_categories(request):
+    minerals = Mineral.objects.filter(category__isnull=False).exclude(category__iexact="Silicate")
     return render(request, 'minerals/minerals_list.html', {'minerals': minerals})
