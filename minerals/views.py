@@ -17,3 +17,24 @@ def mineral_detail(request, pk):
     random_mineral = Mineral.objects.order_by('?').first()
     return render(request, 'minerals/detail.html', {'mineral': mineral,
                                             'random_mineral': random_mineral})
+
+
+def search(request):
+    term = request.GET.get('q')
+    minerals = Mineral.objects.filter(name__icontains=term)
+    return render(request, 'minerals/minerals_list.html', {'minerals': minerals})
+
+
+def filter_by_name(request, letter):
+    minerals = Mineral.objects.filter(name__startswith=letter)
+    return render(request, 'minerals/minerals_list.html', {'minerals': minerals})
+
+
+def filter_by_category(request, category):
+    minerals = Mineral.objects.filter(category__iexact=category)
+    return render(request, 'minerals/minerals_list.html', {'minerals': minerals})
+
+
+def other_categories(request):
+    minerals = Mineral.objects.filter(category__isnull=False).exclude(category__iexact="Silicate")
+    return render(request, 'minerals/minerals_list.html', {'minerals': minerals})

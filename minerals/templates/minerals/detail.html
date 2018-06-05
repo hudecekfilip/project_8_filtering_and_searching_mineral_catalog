@@ -6,6 +6,7 @@
 {% endblock %}
 
 {% block content %}
+
 <div class="grid-100 mineral__container">
   <h1 class="mineral__name">{{ mineral.name }}</h1>
   <div class="mineral__image-bg">
@@ -48,7 +49,6 @@
 {% block random_mineral %}
     <div class="minerals__random">
         <a class="minerals__anchor" href="{% url 'minerals:detail' pk=random_mineral.pk %}">Show random mineral</a>
-        <a class="minerals__anchor" href="{% url 'minerals:haystack_search' %}">Search</a>
     </div>
 {% endblock %}
 {% endblock %}

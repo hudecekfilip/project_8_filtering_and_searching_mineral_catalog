@@ -13,7 +13,6 @@
 {% block random_mineral %}
     <div class="minerals__random">
         <a class="minerals__anchor" href="{% url 'minerals:detail' pk=random_mineral.pk %}">Show random mineral</a>
-        <a class="minerals__anchor" href="{% url 'minerals:haystack_search' %}">Search</a>
     </div>
 {% endblock %}
 {% endblock %}
