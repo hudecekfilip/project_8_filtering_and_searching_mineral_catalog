@@ -1,3 +1,4 @@
+from django.db.models import Q
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect
 
@@ -21,7 +22,14 @@ def mineral_detail(request, pk):
 
 def search(request):
     term = request.GET.get('q')
-    minerals = Mineral.objects.filter(name__icontains=term)
+    minerals = Mineral.objects.filter(
+        Q(name__icontains=term) |
+        Q(category__icontains=term) |
+        Q(formula__icontains=term) |
+        Q(color__icontains=term) |
+        Q(luster__icontains=term) |
+        Q(streak__icontains=term)
+    )
     return render(request, 'minerals/minerals_list.html', {'minerals': minerals})
 
 
