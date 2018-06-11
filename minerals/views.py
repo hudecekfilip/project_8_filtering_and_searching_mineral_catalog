@@ -6,9 +6,9 @@ from .models import Mineral
 
 
 def all_minerals(request):
-    all_entries = Mineral.objects.order_by('name')
+    minerals = Mineral.objects.order_by('name')
     random_mineral = Mineral.objects.order_by('?').first()
-    return render(request, 'minerals/index.html', {'all_entries': all_entries,
+    return render(request, 'minerals/index.html', {'minerals': minerals,
                                             'random_mineral': random_mineral})
 
 
