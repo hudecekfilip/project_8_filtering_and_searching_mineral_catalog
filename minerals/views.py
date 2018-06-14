@@ -28,7 +28,18 @@ def search(request):
         Q(formula__icontains=term) |
         Q(color__icontains=term) |
         Q(luster__icontains=term) |
-        Q(streak__icontains=term)
+        Q(streak__icontains=term) |
+        Q(crystal_system__icontains=term) |
+        Q(unit_cell__icontains=term) |
+        Q(crystal_symmetry__icontains=term) |
+        Q(cleavage__icontains=term) |
+        Q(mohs_scale_hardness__icontains=term) |
+        Q(diaphaneity__icontains=term) |
+        Q(optical_properties__icontains=term) |
+        Q(refractive_index__icontains=term) |
+        Q(crystal_habit__icontains=term) |
+        Q(specific_gravity__icontains=term) |
+        Q(group__icontains=term)
     )
     return render(request, 'minerals/minerals_list.html', {'minerals': minerals})
 
