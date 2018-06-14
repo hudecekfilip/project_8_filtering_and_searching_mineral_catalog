@@ -1,4 +1,5 @@
 from django import template
+from urllib import request
 
 from django.template.defaultfilters import stringfilter
 from django.http import HttpResponseRedirect
@@ -19,7 +20,6 @@ GROUPS = [
 @stringfilter
 def remove_last_character(value):
     return value[:-1]
-
 
 @register.inclusion_tag('minerals/minerals_names.html')
 def first_letters():
