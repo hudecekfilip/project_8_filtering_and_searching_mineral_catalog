@@ -1,5 +1,5 @@
 {% load mineral_extras %}
 
 {% for group in groups %}
-    <a href="/filter/category/{{group|remove_last_character}}">{{ group }}</a>
+    <div class="filterDiv groups"><a href="/filter/category/{{group|remove_last_character}}">{{ group }}</a></div>
 {% endfor %}

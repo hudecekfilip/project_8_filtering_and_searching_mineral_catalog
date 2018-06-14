@@ -4,7 +4,9 @@ body { margin: 0; }
 
 article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary { display: block; }
 
-a { background-color: transparent; }
+a {
+    background-color: transparent;
+}
 a:active, a:hover { outline: 0; }
 
 h1 { font-size: 2em; margin: 0.67em 0; }
@@ -16,6 +18,47 @@ img { border: 0; }
 svg:not(:root) { overflow: hidden; }
 
 input { color: inherit; font: inherit; margin: 0; }
+
+
+.container {
+    overflow: hidden;
+}
+
+.filterDiv {
+    float: left;
+    background-color: #2196F3;
+    color: #ffffff;
+    width: 100px;
+    line-height: 30px;
+    text-align: center;
+    margin: 2px;
+    display: none; /* Hidden by default */
+}
+
+/* The "show" class is added to the filtered elements */
+.show {
+    display: block;
+}
+
+/* Style the buttons */
+.btn {
+  border: none;
+  outline: none;
+  padding: 12px 16px;
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+
+/* Add a light grey background on mouse-over */
+.btn:hover {
+  background-color: #ddd;
+}
+
+/* Add a dark background to the active button */
+.btn.active {
+  background-color: #666;
+  color: white;
+}
 
 input[type="reset"], input[type="submit"] { -webkit-appearance: button; cursor: pointer; }
 
@@ -150,7 +193,7 @@ p { margin-top: 0; font-size: 1.6rem; }
 
 em { color: #384033; font-weight: bold; font-style: normal; }
 
-a { color: #689b98; text-decoration: none; -webkit-transition: color 0.2s; -moz-transition: color 0.2s; -ms-transition: color 0.2s; -o-transition: color 0.2s; transition: color 0.2s; }
+a { color: #white; text-decoration: none; -webkit-transition: color 0.2s; -moz-transition: color 0.2s; -ms-transition: color 0.2s; -o-transition: color 0.2s; transition: color 0.2s; }
 a:hover { color: #537d7b; }
 
 input[type="text"] { background: #fff; width: 100%; color: #666; border-radius: 6px; border: 2px solid #CAE5D2; padding: 9px 15px 10px 15px; margin-bottom: 15px; outline: none; box-sizing: border-box; font-size: 1.4rem; font-family: "Work Sans", sans-serif; -webkit-appearance: none; -moz-appearance: none; appearance: none; -webkit-transition: 0.2s; -moz-transition: 0.2s; -ms-transition: 0.2s; -o-transition: 0.2s; transition: 0.2s; }

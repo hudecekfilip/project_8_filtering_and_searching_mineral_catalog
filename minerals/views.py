@@ -46,14 +46,20 @@ def search(request):
 
 def filter_by_name(request, letter):
     minerals = Mineral.objects.filter(name__startswith=letter)
-    return render(request, 'minerals/minerals_list.html', {'minerals': minerals})
+    url = request.build_absolute_uri()
+    filter = url.split("/filter/", 1)[1]
+    return render(request, 'minerals/minerals_list.html', {'minerals': minerals, 'filter': filter})
 
 
 def filter_by_category(request, category):
     minerals = Mineral.objects.filter(category__iexact=category)
-    return render(request, 'minerals/minerals_list.html', {'minerals': minerals})
+    url = request.build_absolute_uri()
+    filter = url.split("/filter/category/", 1)[1]
+    return render(request, 'minerals/minerals_list.html', {'minerals': minerals, 'filter': filter})
 
 
 def other_categories(request):
     minerals = Mineral.objects.filter(category__isnull=False).exclude(category__iexact="Silicate")
-    return render(request, 'minerals/minerals_list.html', {'minerals': minerals})
+    url = request.build_absolute_uri()
+    filter = url.split("/filter/category/", 1)[1]
+    return render(request, 'minerals/minerals_list.html', {'minerals': minerals, 'filter': filter})
